@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 #define TAMANHO 4
+#define TAMANHO 100000
 
 void main() {
     int a = 0;
