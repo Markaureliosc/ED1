@@ -1,0 +1,66 @@
+//Marco Aurélio Santana Cruz
+#include <stdio.h>
+#include <stdlib.h>
+#define TAMANHO 20
+
+void main() {
+    char vetor[TAMANHO];
+    char alfa[26] = {'zzzz', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'w', 'y', 'z'};
+    int aux = 0;
+    int aux1[20];
+    int aux2;
+
+    //Lê a palavra
+    printf("Digite a palavra: ");
+    gets(vetor);
+    
+    //Converte as letras em números
+    for (int i = 0; i < TAMANHO; i++) {
+        for (int j = 0; j < 26; j++) {
+            if (vetor[i] == alfa[j] && vetor[i] != 0) {
+                vetor[i] = j;
+                aux2++;
+            }
+        }
+    }
+    
+    //Imprimi a lista em números
+    for (int i = 0; i < aux2; i++) {
+        printf("%i\t", vetor[i]);
+    }
+    
+    //Organiza os números no método Bubble Sort
+    for (int i = 0; i < aux2; i++) {
+        for (int j = 0; j < aux2 - 1; j++) {
+            if (vetor[j] > vetor[j + 1]) {
+                aux = vetor[j];
+                vetor[j] = vetor[j + 1];
+                vetor[j + 1] = aux;
+            }
+        }
+    }
+
+    printf("\n");
+    
+    //Imprimi os números ordenados
+    for (int i = 0; i < aux2; i++) {
+        printf("%i\t", vetor[i]);
+    }
+
+    printf("\n");
+    
+    //Converte os números em letras
+    for (int i = 0; i < aux2; i++) {
+        for (int j = 0; j < 26; j++) {
+            if(vetor[i] == j){
+                vetor[i] = (char) (alfa[j]);
+            }
+        }
+    }
+    
+    //Imprimi as letras em ordem alfabética
+    for (int i = 0; i < aux2; i++) {
+        printf("%c\t", vetor[i]);
+    }
+
+}
